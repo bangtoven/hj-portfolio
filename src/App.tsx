@@ -1,25 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Navigation from "./components/Navigation";
+import WelcomePage from "./components/Welcome";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <h1>
+            <Link to="/">HJ Lim</Link>
+          </h1>
+          <Navigation />
+        </header>
+        <main>
+          <Switch>
+            <Route exact={true} path="/welcome">
+              <WelcomePage />
+            </Route>
+            <Route path="/">
+              <Navigation />
+            </Route>
+          </Switch>
+        </main>
+        <footer>
+          <a href="">Go back</a>
+          <div>
+            <p>
+              Sign up to our mailing list to receive updates on exhibitions and
+              new work
+            </p>
+            <form>
+              <label htmlFor="email-input">Email Address</label>
+              <input id="email-input" placeholder="Enter email" />
+              <button>Submit</button>
+            </form>
+          </div>
+          <div>
+            <p>copyright things</p>
+            <img src="https://picsum.photos/40" />
+            <img src="https://picsum.photos/40" />
+            <img src="https://picsum.photos/40" />
+          </div>
+        </footer>
+      </div>
+    </Router>
   );
 }
 
