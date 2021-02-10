@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Switch, Route, Link } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import WelcomePage from "./components/Welcome";
 
 function App() {
   return (
-    <Router>
+    <HashRouter basename="/">
       <div className="App">
         <header className="App-header">
           <h1>
@@ -45,7 +45,7 @@ function App() {
           </div>
         </footer>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 
